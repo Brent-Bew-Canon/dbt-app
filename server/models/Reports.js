@@ -6,12 +6,10 @@ const reportSchema = new Schema(
         emotion: {
             type: String,
             required: true,
-            unique: true
         },
         sEmotions: [
             {
                 type: String,
-                unique: true
             }
         ],
         date: {
@@ -51,6 +49,6 @@ const reportSchema = new Schema(
     }
 )
 
-const Reports = model('report', reportSchema);
+const Reports = model('reports', reportSchema);
 
 module.exports = { Reports }

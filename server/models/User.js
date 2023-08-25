@@ -1,6 +1,6 @@
 const { Schema, model, SchemaType } = require('mongoose');
 const bcrypt = require('bcrypt')
-const { Job } = require('./Job')
+const { Reports } = require('./Reports')
 
 
 // Schema to create user model
@@ -28,10 +28,10 @@ const userSchema = new Schema(
             min_length: 8,
             max_length: 50,
         },
-        jobs: [
+        reports: [
             {
                 type: Schema.Types.ObjectId,
-                ref: 'job'
+                ref: 'reports'
             }
         ]
     },
