@@ -1,10 +1,22 @@
 const jwt = require('jsonwebtoken');
 
-const secretKey = 'ieufmvndke7KJDHDKjdjf649gjkfidjJhfjfgh8DUFJFMdzzzzxzxzxz';
+// //////
 
-function generateToken(user) {
+// signToken: function ({ firstName, email, _id }) {
+//     const payload = {firstName, email, _id };
+
+//     return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
+// }
+
+//////
+
+const secretKey = 'ieufmvndke7KJDHDKjdjf649gjkfidjJhfjfgh8DUFJFMdzzzzxzxzxz';
+const expiration = '2h';
+
+function generateToken({ firstName, email, _id }) {
     // Create and return a JWT
-    return jwt.sign(user, secretKey, { expiresIn: '1h' });
+    const payload = { firstName, email, _id }
+    return jwt.sign({ data: payload }, secretKey, { expiresIn: expiration });
 }
 
 function verifyToken(token) {
