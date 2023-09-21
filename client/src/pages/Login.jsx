@@ -1,5 +1,6 @@
 import { useState, } from "react"
 import { Link } from "react-router-dom";
+import Auth from '../utils/auth'
 
 function Login() {
     const [formState, setFormState] = useState({});
@@ -8,23 +9,22 @@ function Login() {
         event.preventDefault();
         try {
             console.log(formState);
-            // const response = await fetch(`/api/user`, {
-            //     method: "POST",
-            //     headers: {
-            //         "Content-Type": "application/json"
-            //     },
-            //     body: JSON.stringify({
-            //         firstName: formState.firstName,
-            //         lastName: formState.lastName,
-            //         email: formState.email,
-            //         password: formState.password
-            //     }),
-            // })
-            // const result = await response.json()
-            // if (result.message === 'Success') {
-            //     navigate('/login')
-            // }
-            // console.log(result)
+            const response = await fetch(`/api/user/login`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    email: formState.email,
+                    password: formState.password
+                }),
+            })
+            const result = await response.json()
+            if (result.message === 'Logged in!') {
+                Auth.login(result.token);
+                navigate('/profile')
+            }
+            console.log(result)
 
         } catch (error) {
             console.log(error);

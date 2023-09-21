@@ -4,11 +4,12 @@ const {
     getOneUser,
     createUser,
     deleteUser,
+    login
 } = require('../../controllers/userController.js');
 
 
-// '/login'
-// router.route('/login').post(login)
+// '/api/user/login'
+router.route('/login').post(login)
 
 // /api/user
 router.route('/').get(getUsers).post(createUser);

@@ -1,5 +1,5 @@
 const { User } = require('../models/User.js')
-
+const { generateToken } = require('../utils/auth.js')
 module.exports = {
     // Get all users
     async getUsers(req, res) {
@@ -49,6 +49,34 @@ module.exports = {
             res.json({ message: 'User deleted!' });
         } catch (err) {
             res.status(500).json(err);
+        }
+    },
+
+    // log in a user
+    async login(req, res) {
+        try {
+            const userData = await User.findOne({ email: req.body.email })
+            if (!userData) {
+                res
+                    .status(400)
+                    .json({ message: 'Incorrect email, please try again' });
+                return;
+            }
+
+            const validPassword = await userData.comparePassword(req.body.password);
+
+            if (!validPassword) {
+                res
+                    .status(400)
+                    .json({ message: `Incorrect password, please try again ${req.body.password}` });
+                return;
+            }
+
+            const token = generateToken(userData);
+            res.json({ user: userData, token, message: 'Logged in!' })
+
+        } catch (error) {
+            console.error(error)
         }
     },
 }
