@@ -9,6 +9,7 @@ import Nav from './components/Nav.jsx'
 import Footer from './components/Footer';
 import Profile from './pages/Profile.jsx'
 import SkillsCoach from './pages/SkillsCoach';
+import Signup from './pages/Signup';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
           <Route path="/home" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/coach" element={<SkillsCoach />} />

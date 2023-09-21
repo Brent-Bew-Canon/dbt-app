@@ -3,6 +3,7 @@ const express = require('express')
 const db = require('./config/connection')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')
+const cookieParser = require("cookie-parser");
 const port = 3000
 const path = require('path')
 const routes = require('./routes')
@@ -36,6 +37,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //Utilize express routes
 app.use(routes);
+
+// use cookies
+app.use(cookieParser());
 
 //Start the server
 db.once('open', () => {

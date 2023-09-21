@@ -1,7 +1,7 @@
 import { useState, } from "react"
 import { Link } from "react-router-dom";
 
-function Login() {
+function Signup() {
     const [formState, setFormState] = useState({});
 
     const formHandler = async (event) => {
@@ -44,12 +44,20 @@ function Login() {
         <div className="container">
             <div className="row">
                 <div className="col mt-4 mb-3">
-                    <h1 className="text-center">Login or Create an Account to Get Started!</h1>
+                    <h1 className="text-center">Sign Up To Get Started!</h1>
                 </div>
             </div>
             <div className="row">
                 <div className="col-sm-12 col-lg-6 mt-2 mx-auto">
                     <form onSubmit={formHandler}>
+                        <div className="form-floating my-3">
+                            <input type="text" className="form-control" id="firstName" name="firstName" placeholder="First Name..." onChange={handleChange} />
+                            <label htmlFor="firstName">First Name</label>
+                        </div>
+                        <div className="form-floating my-3">
+                            <input type="text" className="form-control" id="lastName" name="lastName" placeholder="Last Name..." onChange={handleChange} />
+                            <label htmlFor="lastName">Last Name</label>
+                        </div>
                         <div className="form-floating my-3">
                             <input type="email" className="form-control" id="email" name="email" placeholder="name@example.com" onChange={handleChange} />
                             <label htmlFor="email">Email address</label>
@@ -59,10 +67,10 @@ function Login() {
                             <label htmlFor="password">Password</label>
                         </div>
                         <div className="text-center">
-                            <button className="btn btn-primary py-2 px-4 my-5" type="submit" >Login</button>
+                            <button className="btn btn-primary py-2 px-4 my-5" type="submit" >Sign Up</button>
                         </div>
                         <div className="text-center">
-                            <p>New Here? Click here to <Link to={'/signup'}>sign up!</Link> </p>
+                            <p>Already have an account? Click here to <Link to={'/'}>login!</Link> </p>
                         </div>
                     </form>
                 </div>
@@ -71,4 +79,4 @@ function Login() {
     )
 }
 
-export default Login
+export default Signup
