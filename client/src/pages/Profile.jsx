@@ -1,9 +1,15 @@
-
+import { Link } from "react-router-dom"
 
 function Profile() {
 
     return (
         <div className="container">
+            <div className="row">
+                <div className="col-lg-10 text-center mx-auto mt-5">
+                    {/* Add logout functionality */}
+                    <Link className="btn btn-primary w-25 fs-4" to={'/'}>Logout</Link>
+                </div>
+            </div>
             <div className="row">
                 <div className="col-lg-10 text-center mx-auto mt-5">
                     <h1 className="fw-bold">Skills Coach Results</h1>

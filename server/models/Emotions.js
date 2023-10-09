@@ -17,13 +17,13 @@ const emotionsSchema = new Schema(
         promptingEvents: [
             {
                 type: String,
-                unique: true
+                unique: false
             }
         ],
         actions: [
             {
                 type: String,
-                unique: true
+                unique: false
             }
         ]
     }

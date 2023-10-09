@@ -32,7 +32,7 @@ module.exports = {
             const emotions = await Emotions.create(req.body);
             res.json({ emotions: emotions, message: "Success" });
         } catch (err) {
-            return res.status(500).json('Error creating emotions:', err);
+            return res.status(500).json('Error creating emotions:');
         }
     },
     // Delete a emotions
