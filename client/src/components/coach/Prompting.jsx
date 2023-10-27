@@ -17,7 +17,7 @@ function Prompting() {
             <div className="row">
                 <div className="col-6 mx-auto text-center">
                     {promptingEvents.map(prompt =>
-                        <button key={prompt} className="btn btn-secondary w-100 fs-2 m-2" onClick={(e) => { setInput(e.target.innerText) }}>
+                        <button key={prompt} className="btn btn-secondary w-100 fs-2 m-2 genBut" onClick={(e) => { setInput(e.target.innerText) }}>
                             {prompt}
                         </button>)}
                 </div>

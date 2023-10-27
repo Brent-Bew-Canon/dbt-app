@@ -17,15 +17,16 @@ function SecondaryEmotions() {
             <div className="row">
                 <div className="col-6 mx-auto text-center">
                     {prompts[currentQuestion].options.map(emote =>
-                        <button key={emote.emotion} className="btn w-50 fs-2 m-2" style={{ backgroundColor: emote.color }} onClick={(e) => { setInput(e.target.innerText) }}>
+                        <button key={emote.emotion} className="btn w-50 fs-2 m-2 genBut" style={{ backgroundColor: emote.color }} onClick={(e) => { setInput(e.target.innerText) }}>
                             {emote.emotion}
                         </button>)}
+                    <button className="btn w-50 fs-2 m-2 bg-secondary genBut">None</button>
                 </div>
             </div>
             <div className="row mt-5">
                 <div className="col-8 mx-auto text-center">
                     <button className="btn btn-danger fs-3 fw-bold mx-2" onClick={() => { previousQuestion() }}>Back</button>
-                    <button className="btn btn-success fs-3 fw-bold mx-2" onClick={() => { nextQuestion(), updateResponses(input) }}>Next</button>
+                    <button className="btn btn-success fs-3 fw-bold" onClick={() => { if (input === '') { alert('Please select an emotion') } else { nextQuestion(), updateResponses(input) } }}>Next</button>
                 </div>
             </div>
         </div>

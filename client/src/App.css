@@ -2,3 +2,15 @@
   text-decoration: none;
   color: black
 }
+
+.genBut:hover {
+  opacity: 0.8;
+}
+
+.genBut:focus {
+  border: 2px solid black;
+}
+
+.icons {
+  width: 10vh;
+}
